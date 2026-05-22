@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施設薬剤師ノート | 施設薬剤師が、施設薬剤師のために作った管理ノート</title>
+<meta name="description" content="外用・頓用薬の把握から他科受診管理まで、現場10人の声から機能を厳選した施設薬剤師向け管理ツール。患者の個人情報不要。Googleアカウントで今日から使えます。">
+<meta name="keywords" content="施設薬剤師,外用薬管理,頓用薬管理,在宅薬剤師,施設管理,薬剤師ツール,服薬管理,他科受診">
+<meta property="og:title" content="施設薬剤師ノート | 施設薬剤師が、施設薬剤師のために作った管理ノート">
+<meta property="og:description" content="外用・頓用薬の把握から他科受診管理まで。患者の個人情報不要で今日から使える施設薬剤師向け管理ツール。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ryusaku.jp">
+<meta property="og:site_name" content="施設薬剤師ノート">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="施設薬剤師ノート | 施設薬剤師が、施設薬剤師のために作った管理ノート">
+<meta name="twitter:description" content="外用・頓用薬の把握から他科受診管理まで。患者の個人情報不要で今日から使える施設薬剤師向け管理ツール。">
+<link rel="canonical" href="https://ryusaku.jp">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky-50: #f0f9ff;
+    --sky-100: #e0f2fe;
+    --sky-200: #bae6fd;
+    --sky-400: #38bdf8;
+    --sky-600: #0284c7;
+    --sky-800: #075985;
+    --sky-900: #0c4a6e;
+    --orange: #f97316;
+    --pink: #ec4899;
+    --yellow: #fbbf24;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-500: #64748b;
+    --gray-700: #334155;
+    --gray-900: #0f172a;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--white);
+    color: var(--gray-900);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ナビ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sky-100);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--sky-800);
+  }
+  .nav-logo svg { width: 32px; height: 32px; }
+  .nav-cta {
+    background: var(--sky-600);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--sky-800); }
+
+  /* ヒーロー */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--sky-50) 0%, var(--white) 50%, var(--sky-100) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 泡背景 */
+  .bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid var(--sky-200);
+    opacity: 0.5;
+    animation: float linear infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 0.4; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(-80px) scale(1.05); opacity: 0; }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--sky-100);
+    color: var(--sky-800);
+    border: 1px solid var(--sky-200);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 6vw, 64px);
+    line-height: 1.2;
+    color: var(--sky-900);
+    margin-bottom: 12px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title-ja {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--sky-800);
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s 0.15s ease both;
+  }
+  .hero-sub {
+    font-size: clamp(13px, 2vw, 16px);
+    color: var(--gray-500);
+    max-width: 520px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--sky-600);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 28px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(2,132,199,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--sky-800);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(2,132,199,0.4);
+  }
+  .btn-secondary {
+    background: white;
+    color: var(--sky-600);
+    padding: 14px 32px;
+    border-radius: 28px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1.5px solid var(--sky-200);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--sky-400);
+    transform: translateY(-2px);
+  }
+
+  .hero-note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--gray-500);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  /* アプリイメージ */
+  .hero-mockup {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 680px;
+    background: var(--sky-50);
+    border: 1.5px solid var(--sky-200);
+    border-radius: 16px;
+    padding: 24px;
+    animation: fadeUp 0.8s 0.5s ease both;
+    box-shadow: 0 20px 60px rgba(14,116,144,0.1);
+  }
+  .mockup-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .mockup-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .mockup-dot:nth-child(1) { background: #ff5f57; }
+  .mockup-dot:nth-child(2) { background: #febc2e; }
+  .mockup-dot:nth-child(3) { background: #28c840; }
+  .mockup-inner {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 12px;
+    min-height: 240px;
+  }
+  .mockup-sidebar {
+    background: var(--sky-100);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .mockup-facility {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sky-800);
+    margin-bottom: 8px;
+  }
+  .mockup-patient {
+    font-size: 10px;
+    color: var(--sky-600);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    cursor: default;
+  }
+  .mockup-patient.active {
+    background: var(--sky-200);
+    font-weight: 600;
+  }
+  .mockup-content {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .mockup-patient-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--sky-100);
+  }
+  .mockup-drug {
+    background: var(--sky-50);
+    border: 1px solid var(--sky-100);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+  .mockup-drug-name { font-weight: 700; color: var(--gray-900); }
+  .mockup-drug-info { color: var(--gray-500); margin-top: 2px; }
+  .mockup-drug-flag {
+    display: inline-block;
+    background: #fef9c3;
+    border: 1px solid #fbbf24;
+    color: #92400e;
+    font-size: 9px;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-bottom: 4px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* セクション共通 */
+  section { padding: 80px 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky-600);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(24px, 4vw, 40px);
+    color: var(--sky-900);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 15px;
+    color: var(--gray-500);
+    max-width: 560px;
+  }
+
+  /* タブセクション */
+  .tabs-section { background: var(--gray-50); }
+  .tabs {
+    display: flex;
+    gap: 0;
+    background: var(--sky-100);
+    border-radius: 12px;
+    padding: 4px;
+    margin: 40px 0 32px;
+    width: fit-content;
+  }
+  .tab {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sky-600);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    background: none;
+  }
+  .tab.active {
+    background: white;
+    color: var(--sky-800);
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .concern-box {
+    background: white;
+    border: 1.5px solid var(--sky-100);
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .concern-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .concern-question {
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 700;
+    color: var(--sky-900);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .concern-body {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.8;
+  }
+  .concern-solution {
+    background: var(--sky-50);
+    border-left: 3px solid var(--sky-400);
+    border-radius: 0 8px 8px 0;
+    padding: 20px;
+  }
+  .concern-solution-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sky-600);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .concern-solution-text {
+    font-size: 14px;
+    color: var(--sky-900);
+    font-weight: 600;
+    line-height: 1.7;
+  }
+
+  /* 機能紹介 */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .feature-card {
+    background: var(--sky-50);
+    border: 1.5px solid var(--sky-100);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(14,116,144,0.1);
+  }
+  .feature-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  .feature-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sky-900);
+    margin-bottom: 8px;
+  }
+  .feature-body {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.7;
+  }
+
+  /* 現場の声 */
+  .voice-section { background: var(--sky-900); color: white; }
+  .voice-section .section-label { color: var(--sky-200); }
+  .voice-section .section-title { color: white; }
+  .voice-section .section-sub { color: var(--sky-200); }
+  .voice-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: var(--sky-200);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* 安心ポイント */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .trust-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .trust-icon {
+    width: 40px; height: 40px;
+    background: var(--sky-100);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .trust-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--sky-900);
+    margin-bottom: 4px;
+  }
+  .trust-body {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--sky-600) 0%, var(--sky-900) 100%);
+    text-align: center;
+    color: white;
+  }
+  .cta-section .section-title { color: white; }
+  .cta-note { font-size: 13px; color: var(--sky-200); margin-top: 12px; }
+
+  /* フッター */
+  footer {
+    background: var(--gray-900);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+  }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  footer a:hover { color: white; }
+
+  /* ニーズカード */
+  .needs-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 40px 0 32px;
+  }
+  .needs-card {
+    background: white;
+    border: 2px solid var(--sky-100);
+    border-radius: 16px;
+    padding: 28px 24px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: left;
+  }
+  .needs-card:hover {
+    border-color: var(--sky-400);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(14,116,144,0.12);
+  }
+  .needs-card.active {
+    border-color: var(--sky-600);
+    background: var(--sky-50);
+    box-shadow: 0 8px 24px rgba(2,132,199,0.15);
+  }
+  .needs-card-icon { font-size: 32px; margin-bottom: 12px; }
+  .needs-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--sky-400);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .needs-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sky-900);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .needs-card-desc {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+  .needs-card.active .needs-card-label { color: var(--sky-600); }
+  .needs-detail {
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .needs-detail.active { display: block; }
+
+  /* レスポンシブ */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .concern-box { grid-template-columns: 1fr; }
+    .mockup-inner { grid-template-columns: 1fr; }
+    .mockup-sidebar { display: none; }
+    .voice-stats { grid-template-columns: 1fr; }
+    .needs-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ナビ -->
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="4" width="24" height="28" rx="4" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.5"/>
+      <rect x="4" y="4" width="7" height="28" rx="3" fill="#38bdf8"/>
+      <line x1="14" y1="12" x2="24" y2="12" stroke="#bae6fd" stroke-width="1.5"/>
+      <line x1="14" y1="17" x2="24" y2="17" stroke="#bae6fd" stroke-width="1.5"/>
+      <line x1="14" y1="22" x2="21" y2="22" stroke="#bae6fd" stroke-width="1.5"/>
+      <g transform="translate(22,22) rotate(-30)">
+        <ellipse cx="0" cy="0" rx="7" ry="3.5" fill="#f97316" clip-path="url(#lnav)"/>
+        <clipPath id="lnav"><rect x="-7" y="-4" width="7" height="8"/></clipPath>
+        <ellipse cx="0" cy="0" rx="7" ry="3.5" fill="#ec4899" clip-path="url(#rnav)"/>
+        <clipPath id="rnav"><rect x="0" y="-4" width="7" height="8"/></clipPath>
+        <ellipse cx="0" cy="0" rx="7" ry="3.5" fill="none" stroke="white" stroke-width="0.8"/>
+      </g>
+    </svg>
+    施設薬剤師ノート
+  </div>
+  <a href="https://facility-note.vercel.app" class="nav-cta">無料で始める</a>
+</nav>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="bubbles">
+    <div class="bubble" style="width:60px;height:60px;top:15%;left:8%;animation-duration:8s;animation-delay:0s;"></div>
+    <div class="bubble" style="width:40px;height:40px;top:25%;left:20%;animation-duration:6s;animation-delay:1s;"></div>
+    <div class="bubble" style="width:80px;height:80px;top:10%;right:12%;animation-duration:10s;animation-delay:2s;"></div>
+    <div class="bubble" style="width:30px;height:30px;top:40%;right:20%;animation-duration:7s;animation-delay:0.5s;"></div>
+    <div class="bubble" style="width:50px;height:50px;bottom:30%;left:15%;animation-duration:9s;animation-delay:3s;"></div>
+    <div class="bubble" style="width:70px;height:70px;bottom:20%;right:10%;animation-duration:11s;animation-delay:1.5s;"></div>
+    <div class="bubble" style="width:25px;height:25px;top:60%;left:40%;animation-duration:5s;animation-delay:2.5s;"></div>
+    <div class="bubble" style="width:45px;height:45px;top:70%;right:35%;animation-duration:8s;animation-delay:4s;"></div>
+  </div>
+
+  <div class="hero-badge">
+    💊 現場10人の声から機能を厳選
+  </div>
+  <div class="hero-title">Facility Note</div>
+  <div class="hero-title-ja">施設薬剤師が、施設薬剤師のために作った管理ノート</div>
+  <p class="hero-sub">外用・頓用薬の把握から他科受診管理まで。<br>患者の個人情報は一切不要。今日から使えます。</p>
+
+  <!-- 個人情報不要バナー -->
+  <div style="background:linear-gradient(135deg,#e0f2fe,#f0f9ff);border:1.5px solid #38bdf8;border-radius:12px;padding:16px 24px;margin-bottom:28px;max-width:520px;text-align:left;animation:fadeUp 0.6s 0.25s ease both;">
+    <div style="font-size:11px;font-weight:700;color:#0284c7;letter-spacing:0.1em;margin-bottom:8px;">🔒 個人情報不要設計</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+      <div style="font-size:12px;color:#075985;">✓ 患者名はイニシャルでOK</div>
+      <div style="font-size:12px;color:#075985;">✓ 施設名も匿名表記でOK</div>
+      <div style="font-size:12px;color:#075985;">✓ 氏名・住所の入力不要</div>
+      <div style="font-size:12px;color:#075985;">✓ Googleアカウントのみ</div>
+    </div>
+  </div>
+
+  <div class="hero-buttons">
+    <a href="#start" class="btn-primary">無料で使ってみる</a>
+    <a href="#features" class="btn-secondary">機能を見る</a>
+  </div>
+  <p class="hero-note">現在テスト運用中のため、ご利用にはGmailアドレスのご登録が必要です</p>
+
+  <!-- モックアップ -->
+  <div class="hero-mockup">
+    <div class="mockup-bar">
+      <div class="mockup-dot"></div>
+      <div class="mockup-dot"></div>
+      <div class="mockup-dot"></div>
+    </div>
+    <div class="mockup-inner">
+      <div class="mockup-sidebar">
+        <div class="mockup-facility">🏠 らいふ羽沢</div>
+        <div class="mockup-patient active">101号室 AA</div>
+        <div class="mockup-patient">102号室 BB</div>
+        <div class="mockup-patient">103号室 CC</div>
+        <div class="mockup-patient" style="color:#94a3b8;font-size:9px;margin-top:8px;">+ 患者を追加</div>
+      </div>
+      <div class="mockup-content">
+        <div class="mockup-patient-name">101号室 AA　<span style="font-size:10px;color:#64748b;font-weight:400;">外用・頓用薬指示</span></div>
+        <div class="mockup-drug">
+          <div class="mockup-drug-flag">⚠ 3ヶ月以上未確認</div>
+          <div class="mockup-drug-name">アズノール軟膏 40g　<span style="color:#94a3b8;font-weight:400;">外用</span></div>
+          <div class="mockup-drug-info">臀部発赤・表皮剥離部　処方：2025/08/14</div>
+        </div>
+        <div class="mockup-drug">
+          <div class="mockup-drug-name">カロナール錠200mg　<span style="color:#94a3b8;font-weight:400;">頓用</span></div>
+          <div class="mockup-drug-info">発熱時　残数：10錠　処方：2025/10/20</div>
+        </div>
+        <div class="mockup-drug">
+          <div class="mockup-drug-name">ヘパリン泡スプレー 200g　<span style="color:#94a3b8;font-weight:400;">外用</span></div>
+          <div class="mockup-drug-info">乾燥部　✓ 最終確認：2026/05/20</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- タブセクション：ニーズ別訴求 -->
+<section class="tabs-section">
+  <div class="container">
+    <div class="section-label">あなたの課題</div>
+    <h2 class="section-title">こんなお悩みありませんか？</h2>
+    <p class="section-sub">施設に関わる立場によって、抱える課題は異なります。</p>
+
+    <div class="needs-cards">
+      <div class="needs-card active" onclick="switchNeeds('individual', this)">
+        <div class="needs-card-icon">👨‍⚕️</div>
+        <div class="needs-card-label">施設薬剤師の方</div>
+        <div class="needs-card-title">服薬管理を<br>薬剤師主導で行いたい</div>
+        <div class="needs-card-desc">外用・頓用薬の把握と看護師との連携ツールとして</div>
+      </div>
+      <div class="needs-card" onclick="switchNeeds('corporation', this)">
+        <div class="needs-card-icon">🏢</div>
+        <div class="needs-card-label">薬局法人の方</div>
+        <div class="needs-card-title">施設との契約を<br>継続・差別化したい</div>
+        <div class="needs-card-desc">信頼される薬局として選ばれ続けるために</div>
+      </div>
+      <div class="needs-card" onclick="switchNeeds('facility', this)">
+        <div class="needs-card-icon">🏠</div>
+        <div class="needs-card-label">介護施設の方</div>
+        <div class="needs-card-title">看護師の負担を減らし<br>管理を標準化したい</div>
+        <div class="needs-card-desc">契約薬局と連携したタスクシフトの実現</div>
+      </div>
+    </div>
+
+    <div class="needs-detail active" id="tab-individual">
+      <div class="concern-box">
+        <div>
+          <div class="concern-title">施設薬剤師の悩み</div>
+          <div class="concern-question">外用・頓用薬の状況、<br>看護師と正確に共有できていますか？</div>
+          <p class="concern-body">「残量は看護師が把握してくれてる」「なんとなくわかってる」——でも、いざ問われたとき薬剤師として答えられますか？<br><br>施設薬剤師が主導する服薬管理は、看護師との信頼関係を作る第一歩です。</p>
+        </div>
+        <div class="concern-solution">
+          <div class="concern-solution-label">施設薬剤師ノートの答え</div>
+          <div class="concern-solution-text">外用・頓用薬を患者ごとに一元管理。3ヶ月未確認フラグで見落としを防ぎ、コピペで看護師との情報共有がすぐできます。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="needs-detail" id="tab-corporation">
+      <div class="concern-box">
+        <div>
+          <div class="concern-title">薬局法人の悩み</div>
+          <div class="concern-question">施設との契約、<br>次の更新も自信を持って臨めますか？</div>
+          <p class="concern-body">担当者が変わるたびに引き継ぎが属人化し、施設からの信頼が揺らぐ——そんな経験はありませんか？<br><br>「管理できている薬局」という実績を、目に見える形で示せますか？</p>
+        </div>
+        <div class="concern-solution">
+          <div class="concern-solution-label">施設薬剤師ノートの答え</div>
+          <div class="concern-solution-text">クラウド管理で担当者が変わっても情報は引き継がれます。管理の質を可視化することで、施設から選ばれ続ける薬局へ。
+          <div style="margin-top:12px;background:#e0f2fe;border-radius:8px;padding:12px 14px;font-size:12px;color:#075985;line-height:1.7;">
+            🙌 <strong>導入サポート無料でご支援</strong><br>
+            初期設定・データ入力をサポートします。アプリは現在無料でご提供中。有料化の際は必ず事前にご連絡し、継続意思を確認してから移行します。
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="needs-detail" id="tab-facility">
+      <div class="concern-box">
+        <div>
+          <div class="concern-title">介護施設の悩み</div>
+          <div class="concern-question">薬の管理、<br>看護師の負担になっていませんか？</div>
+          <p class="concern-body">外用薬の残量確認、他科受診時の持参薬管理——これらが全て看護師の口頭管理では、タスクが属人化してしまいます。<br><br>契約薬局と連携した標準的な管理体制を作りませんか？</p>
+        </div>
+        <div class="concern-solution">
+          <div class="concern-solution-label">施設薬剤師ノートの答え</div>
+          <div class="concern-solution-text">薬剤師と看護師が同じ情報を共有できる仕組みを提供。看護師のタスクシフトを実現し、施設全体の服薬管理の質を高めます。
+          <div style="margin-top:12px;background:#e0f2fe;border-radius:8px;padding:12px 14px;font-size:12px;color:#075985;line-height:1.7;">
+            👩‍⚕️ <strong>入力代行でスムーズに導入</strong><br>
+            施設専門の薬剤師が入力代行を行い、すぐ使える環境を整えます。アプリは現在無料でご提供中。有料化の際は必ず事前にご連絡し、継続意思を確認してから移行します。
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 機能紹介 -->
+<section id="features">
+  <div class="container">
+    <div class="section-label">機能</div>
+    <h2 class="section-title">本当に必要な機能だけを</h2>
+    <p class="section-sub">現場10人の声から厳選。余計な機能は一切ありません。</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💊</div>
+        <div class="feature-title">外用・頓用薬の一元管理</div>
+        <p class="feature-body">薬剤名・用法・残数・処方日を患者ごとに記録。指示内容も一目でわかります。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚠️</div>
+        <div class="feature-title">3ヶ月未確認フラグ</div>
+        <p class="feature-body">最終確認から3ヶ月以上経過した薬剤を自動ハイライト。見落としを防ぎます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏥</div>
+        <div class="feature-title">他科受診スケジュール管理</div>
+        <p class="feature-body">受診先・診療科・調剤日・服用タイミングを記録。持参薬の管理がスムーズに。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">コピペ出力・印刷</div>
+        <p class="feature-body">患者ごとの情報をワンタップでテキストコピー。そのまま記録や申し送りに使えます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <div class="feature-title">クラウド保存</div>
+        <p class="feature-body">Supabaseによる安全なクラウド保存。スマホ・タブレット・PCどこからでもアクセス可能。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">個人情報不要設計</div>
+        <p class="feature-body">Googleアカウントで即ログイン。患者名はイニシャルや番号で管理できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 現場の声 -->
+<section class="voice-section">
+  <div class="container">
+    <div class="section-label">現場の声</div>
+    <h2 class="section-title">数字で見る、現場の実態</h2>
+    <p class="section-sub">施設薬剤師10人へのヒアリングから生まれました。</p>
+    <div class="voice-stats">
+      <div class="stat-card">
+        <div class="stat-number">60%</div>
+        <div class="stat-label">頓用・外用薬の把握が<br>「なんとなく」と回答</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">40%</div>
+        <div class="stat-label">把握が<br>「できていない」と回答</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10人</div>
+        <div class="stat-label">現場の声から<br>機能を厳選</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 安心ポイント -->
+<section>
+  <div class="container">
+    <div class="section-label">安心して使える理由</div>
+    <h2 class="section-title">現場の薬剤師が作りました</h2>
+    <p class="section-sub">開発者自身が施設薬剤師として現場で使っています。</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">👨‍⚕️</div>
+        <div>
+          <div class="trust-title">施設薬剤師が開発・監修</div>
+          <p class="trust-body">現場を知る薬剤師が設計。「使えない機能」は最初から作りません。</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🚀</div>
+        <div>
+          <div class="trust-title">今日から使える</div>
+          <p class="trust-body">Googleアカウントでログインするだけ。面倒な初期設定は不要です。</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📱</div>
+        <div>
+          <div class="trust-title">スマホ対応</div>
+          <p class="trust-body">往診先でもスマホで記録・確認。PCとデータは自動同期されます。</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔐</div>
+        <div>
+          <div class="trust-title">個人情報不要</div>
+          <p class="trust-body">患者名はイニシャル・番号で管理可。個人が特定できない設計です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="start">
+  <div class="container">
+    <h2 class="section-title">まずは無料で使ってみてください</h2>
+    <p style="color:var(--sky-200);margin-bottom:32px;font-size:15px;">現在テスト運用中につき、ご利用には事前のGmailアドレス登録が必要です。</p>
+
+    <!-- 手順 -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:640px;margin:0 auto 36px;text-align:left;">
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:20px;">
+        <div style="font-size:20px;margin-bottom:8px;">①</div>
+        <div style="font-size:13px;font-weight:700;color:white;margin-bottom:4px;">Gmailを送る</div>
+        <div style="font-size:12px;color:var(--sky-200);">ph1@ryusaku.jp に使用するGmailアドレスをご連絡ください</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:20px;">
+        <div style="font-size:20px;margin-bottom:8px;">②</div>
+        <div style="font-size:13px;font-weight:700;color:white;margin-bottom:4px;">登録完了の連絡</div>
+        <div style="font-size:12px;color:var(--sky-200);">登録完了後、折り返しご連絡します（通常1営業日以内）</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:20px;">
+        <div style="font-size:20px;margin-bottom:8px;">③</div>
+        <div style="font-size:13px;font-weight:700;color:white;margin-bottom:4px;">ログインして使う</div>
+        <div style="font-size:12px;color:var(--sky-200);">Googleアカウントでログインするだけ。すぐに使えます</div>
+      </div>
+    </div>
+
+    <a href="mailto:ph1@ryusaku.jp?subject=施設薬剤師ノート利用登録&body=利用を希望するGmailアドレス：%0A%0Aお名前（任意）：" class="btn-primary" style="background:white;color:var(--sky-800);font-size:16px;padding:16px 40px;">
+      ph1@ryusaku.jp にメールを送る →
+    </a>
+    <p class="cta-note">✓ 登録無料　✓ 初回サンプルデータ自動作成　✓ いつでも退会可能</p>
+    <p style="margin-top:12px;font-size:11px;color:var(--sky-200);">※ 現在すべての機能を無料でご提供中。有料化の際は必ず事前にご連絡し、継続意思をご確認してから移行します。</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <p style="margin-bottom:8px;">
+    <a href="#">プライバシーポリシー</a>　|　
+    <a href="#">利用規約</a>　|　
+    <a href="mailto:ph1@ryusaku.jp">お問い合わせ</a>
+  </p>
+  <p>© 2026 施設薬剤師ノート　|　ph1@ryusaku.jp</p>
+</footer>
+
+<script>
+function switchNeeds(id, el) {
+  document.querySelectorAll('.needs-card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.needs-detail').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
+// スクロールアニメーション
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.feature-card, .trust-item, .stat-card, .concern-box').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
