@@ -15,6 +15,7 @@
 <meta name="twitter:title" content="施設薬剤師ノート | 施設薬剤師が、施設薬剤師のために作った管理ノート">
 <meta name="twitter:description" content="外用・頓用薬の把握から他科受診管理まで。患者の個人情報不要で今日から使える施設薬剤師向け管理ツール。">
 <link rel="canonical" href="https://ryusaku.jp">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -503,6 +504,16 @@
   .cta-section .section-title { color: white; }
   .cta-note { font-size: 13px; color: var(--sky-200); margin-top: 12px; }
 
+  /* CTA ステップ */
+  .cta-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    text-align: left;
+  }
+
   /* フッター */
   footer {
     background: var(--gray-900);
@@ -576,6 +587,7 @@
     .mockup-sidebar { display: none; }
     .voice-stats { grid-template-columns: 1fr; }
     .needs-cards { grid-template-columns: 1fr; }
+    .cta-steps { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -866,7 +878,7 @@
     <p style="color:var(--sky-200);margin-bottom:32px;font-size:15px;">現在テスト運用中につき、ご利用には事前のGmailアドレス登録が必要です。</p>
 
     <!-- 手順 -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:640px;margin:0 auto 36px;text-align:left;">
+    <div class="cta-steps">
       <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:20px;">
         <div style="font-size:20px;margin-bottom:8px;">①</div>
         <div style="font-size:13px;font-weight:700;color:white;margin-bottom:4px;">Gmailを送る</div>
