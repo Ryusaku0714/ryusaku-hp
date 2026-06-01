@@ -374,23 +374,36 @@
   }
   .pricing-section .section-label { color: var(--sky-200); }
   .pricing-section .section-title { color: white; }
-  .pricing-box {
-    max-width: 640px;
-    margin: 0 auto;
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    text-align: left;
+  }
+  .pricing-card {
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 16px;
-    padding: 32px;
-    margin-top: 32px;
+    padding: 28px 24px;
   }
-  .pricing-text {
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.9;
+  .pricing-plan-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+    line-height: 1.4;
   }
-  .pricing-highlight {
+  .pricing-plan-price {
+    font-size: 22px;
+    font-weight: 700;
     color: var(--sky-200);
-    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .pricing-plan-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
   }
 
   /* ── 問い合わせ ── */
@@ -548,13 +561,23 @@
 <section class="pricing-section">
   <div class="container">
     <div class="section-label">料金について</div>
-    <h2 class="section-title">現在、完全無料でご利用いただけます</h2>
-    <div class="pricing-box">
-      <p class="pricing-text">
-        現在は<span class="pricing-highlight">完全に無料で利用可能</span>です。お気軽にご利用ください。<br>
-        ユーザー数が想定を超えた場合、サーバー維持費等で一部有料化を検討する可能性があります。<br>
-        その際は必ずご相談のうえ、<span class="pricing-highlight">早期ユーザーへの配慮を予定しています。</span>
-      </p>
+    <h2 class="section-title">料金プラン</h2>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-plan-name">✅ 無料トライアル（2ヶ月）</div>
+        <div class="pricing-plan-price">無料</div>
+        <p class="pricing-plan-desc">登録から2ヶ月間、全機能を無料でお試しいただけます。往診を数回経験してから判断できます。</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-plan-name">✅ 個人プラン</div>
+        <div class="pricing-plan-price">月額500円</div>
+        <p class="pricing-plan-desc">2ヶ月のトライアル終了後に適用。全機能利用可能。</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-plan-name">✅ 薬局・法人プラン</div>
+        <p class="pricing-plan-desc">複数スタッフでの利用や優先サポートをご希望の方は<a href="mailto:ph1@ryusaku.jp" style="color:var(--sky-200);">ph1@ryusaku.jp</a>までお問い合わせください。</p>
+      </div>
     </div>
   </div>
 </section>
