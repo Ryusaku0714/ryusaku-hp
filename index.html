@@ -423,22 +423,23 @@
   /* ── スクリーンショット ── */
   .screenshot-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
+    grid-template-columns: repeat(2, 220px);
+    gap: 40px;
+    justify-content: center;
     margin-top: 28px;
   }
   .screenshot-item { text-align: center; }
   .phone-frame {
-    border-radius: 16px;
+    border-radius: 20px;
     border: 2px solid var(--sky-200);
     overflow: hidden;
-    box-shadow: 0 12px 40px rgba(14,116,144,0.15), 0 2px 8px rgba(14,116,144,0.07);
+    box-shadow: 0 12px 36px rgba(14,116,144,0.16), 0 2px 8px rgba(14,116,144,0.08);
     background: white;
   }
   .phone-bar {
     background: var(--sky-50);
     border-bottom: 1px solid var(--sky-100);
-    padding: 8px 0 6px;
+    padding: 10px 0 8px;
     display: flex;
     justify-content: center;
   }
@@ -450,7 +451,7 @@
   }
   .phone-screen {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 4;
     background: var(--sky-50);
     overflow: hidden;
     line-height: 0;
@@ -482,7 +483,7 @@
     .hero { padding: 110px 20px 60px; }
     .tools-grid { grid-template-columns: 1fr; }
     section { padding: 60px 20px; }
-    .screenshot-grid { grid-template-columns: 1fr; }
+    .screenshot-grid { grid-template-columns: 220px; }
   }
 
   @media (max-width: 375px) {
