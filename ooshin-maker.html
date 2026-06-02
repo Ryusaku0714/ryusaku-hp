@@ -412,14 +412,17 @@
   }
   .phone-screen {
     width: 100%;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
+    background: var(--sky-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .phone-screen img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    object-fit: contain;
     display: block;
   }
   .screenshot-caption {
