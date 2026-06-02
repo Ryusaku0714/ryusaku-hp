@@ -420,12 +420,45 @@
   footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
   footer a:hover { color: white; }
 
+  /* ── スクリーンショット ── */
+  .screenshot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .screenshot-item { text-align: center; }
+  .screenshot-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1.5px solid var(--sky-100);
+    box-shadow: 0 8px 32px rgba(14,116,144,0.10);
+    display: block;
+    margin: 0 auto;
+  }
+  .screenshot-caption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .screenshot-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sky-800);
+    margin-top: 48px;
+    margin-bottom: 0;
+    letter-spacing: 0.02em;
+  }
+
   /* ── レスポンシブ ── */
   @media (max-width: 640px) {
     nav { padding: 14px 20px; }
     .hero { padding: 110px 20px 60px; }
     .tools-grid { grid-template-columns: 1fr; }
     section { padding: 60px 20px; }
+    .screenshot-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 375px) {
@@ -553,6 +586,19 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- 往診資料メーカーの画面イメージ -->
+    <p class="screenshot-heading">往診資料メーカーの画面イメージ</p>
+    <div class="screenshot-grid">
+      <div class="screenshot-item">
+        <img src="変更ログ画像.webp" alt="薬剤変更記録画面のスクリーンショット" loading="lazy">
+        <div class="screenshot-caption">薬剤変更記録</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="印刷プレビュー画面.webp" alt="印刷プレビュー画面のスクリーンショット" loading="lazy">
+        <div class="screenshot-caption">印刷プレビュー</div>
+      </div>
     </div>
   </div>
 </section>
