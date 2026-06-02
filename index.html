@@ -424,66 +424,46 @@
   .screenshot-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 24px;
+    gap: 32px;
+    margin-top: 28px;
   }
   .screenshot-item { text-align: center; }
-  .browser-frame {
-    border-radius: 10px;
-    border: 1.5px solid var(--sky-200);
+  .phone-frame {
+    max-width: 260px;
+    margin: 0 auto;
+    border-radius: 28px;
+    border: 2px solid var(--sky-200);
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(14,116,144,0.12);
+    box-shadow: 0 20px 60px rgba(14,116,144,0.18), 0 4px 12px rgba(14,116,144,0.08);
     background: white;
   }
-  .browser-bar {
+  .phone-bar {
     background: var(--sky-50);
     border-bottom: 1px solid var(--sky-100);
-    padding: 8px 12px;
+    padding: 10px 0 7px;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    justify-content: center;
   }
-  .browser-dots {
-    display: flex;
-    gap: 5px;
-    flex-shrink: 0;
+  .phone-notch {
+    width: 56px;
+    height: 6px;
+    background: var(--sky-300);
+    border-radius: 3px;
   }
-  .browser-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-  .browser-dot-red { background: #ff5f57; }
-  .browser-dot-yellow { background: #febc2e; }
-  .browser-dot-green { background: #28c840; }
-  .browser-url {
-    flex: 1;
-    min-width: 0;
-    background: white;
-    border: 1px solid var(--sky-100);
-    border-radius: 12px;
-    padding: 3px 12px;
-    font-size: 10px;
-    color: var(--gray-500);
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .browser-screen {
+  .phone-screen {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 9 / 16;
     overflow: hidden;
   }
-  .browser-screen img {
+  .phone-screen img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top left;
+    object-position: top;
     display: block;
   }
   .screenshot-caption {
-    margin-top: 10px;
+    margin-top: 14px;
     font-size: 13px;
     color: var(--gray-500);
     font-weight: 500;
@@ -637,33 +617,19 @@
     <p class="screenshot-heading">往診資料メーカーの画面イメージ</p>
     <div class="screenshot-grid">
       <div class="screenshot-item">
-        <div class="browser-frame">
-          <div class="browser-bar">
-            <div class="browser-dots">
-              <span class="browser-dot browser-dot-red"></span>
-              <span class="browser-dot browser-dot-yellow"></span>
-              <span class="browser-dot browser-dot-green"></span>
-            </div>
-            <div class="browser-url">ooshin-maker.vercel.app</div>
-          </div>
-          <div class="browser-screen">
-            <img src="変更ログ画像.webp" alt="薬剤変更記録画面のスクリーンショット" loading="lazy">
+        <div class="phone-frame">
+          <div class="phone-bar"><div class="phone-notch"></div></div>
+          <div class="phone-screen">
+            <img src="変更ログ画像.jpg" alt="薬剤変更記録画面のスクリーンショット" loading="lazy">
           </div>
         </div>
         <div class="screenshot-caption">薬剤変更記録</div>
       </div>
       <div class="screenshot-item">
-        <div class="browser-frame">
-          <div class="browser-bar">
-            <div class="browser-dots">
-              <span class="browser-dot browser-dot-red"></span>
-              <span class="browser-dot browser-dot-yellow"></span>
-              <span class="browser-dot browser-dot-green"></span>
-            </div>
-            <div class="browser-url">ooshin-maker.vercel.app</div>
-          </div>
-          <div class="browser-screen">
-            <img src="印刷プレビュー画面.webp" alt="印刷プレビュー画面のスクリーンショット" loading="lazy">
+        <div class="phone-frame">
+          <div class="phone-bar"><div class="phone-notch"></div></div>
+          <div class="phone-screen">
+            <img src="印刷プレビュー画面.jpg" alt="印刷プレビュー画面のスクリーンショット" loading="lazy">
           </div>
         </div>
         <div class="screenshot-caption">印刷プレビュー</div>
