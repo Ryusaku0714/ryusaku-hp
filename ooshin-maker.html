@@ -384,40 +384,36 @@
   .screenshot-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 28px;
     margin-top: 28px;
   }
   .screenshot-item { text-align: center; }
   .phone-frame {
-    max-width: 260px;
-    margin: 0 auto;
-    border-radius: 28px;
+    border-radius: 16px;
     border: 2px solid var(--sky-200);
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(14,116,144,0.18), 0 4px 12px rgba(14,116,144,0.08);
+    box-shadow: 0 12px 40px rgba(14,116,144,0.15), 0 2px 8px rgba(14,116,144,0.07);
     background: white;
   }
   .phone-bar {
     background: var(--sky-50);
     border-bottom: 1px solid var(--sky-100);
-    padding: 10px 0 7px;
+    padding: 8px 0 6px;
     display: flex;
     justify-content: center;
   }
   .phone-notch {
-    width: 56px;
-    height: 6px;
+    width: 44px;
+    height: 5px;
     background: var(--sky-300);
     border-radius: 3px;
   }
   .phone-screen {
     width: 100%;
     aspect-ratio: 16 / 9;
-    overflow: hidden;
     background: var(--sky-50);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    line-height: 0;
   }
   .phone-screen img {
     width: 100%;
@@ -426,7 +422,7 @@
     display: block;
   }
   .screenshot-caption {
-    margin-top: 14px;
+    margin-top: 12px;
     font-size: 13px;
     color: var(--gray-500);
     font-weight: 500;
