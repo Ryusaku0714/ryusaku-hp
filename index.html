@@ -378,6 +378,51 @@
     .footer-links { gap: 14px 20px; }
     .site-footer { flex-direction: column; gap: 20px; text-align: center; }
   }
+
+  /* ── レスポンシブ（768px以下・崩れ修正） ── */
+  @media (max-width: 768px) {
+    /* ① ナビゲーションヘッダー */
+    .site-nav { display: flex; align-items: center; padding: 8px 12px; }
+    .nav-brand { gap: 8px; }
+    .nav-brand-name { font-size: 14px; white-space: nowrap; }
+    .nav-brand-sub { font-size: 9px; white-space: nowrap; }
+    .nav-menu { gap: 10px; }
+    .site-nav .btn {
+      font-size: 12px !important;
+      padding: 8px 14px !important;
+      white-space: nowrap !important;
+    }
+
+    /* ② ヒーローセクション本文 */
+    .hero-lead {
+      font-size: 15px !important;
+      line-height: 1.75 !important;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    /* ③ セクション見出し */
+    h2 {
+      font-size: 23px !important;
+      line-height: 1.5 !important;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    h3 {
+      font-size: 19px !important;
+      line-height: 1.5 !important;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .philosophy h2, .cta h2 { font-size: 24px !important; }
+
+    /* ④ ボタン */
+    .btn { white-space: nowrap; }
+    .hero-actions, .cta-actions { flex-wrap: wrap; }
+    .btn-primary { font-size: 13px !important; padding: 13px 20px !important; }
+    .btn-secondary { font-size: 12.5px !important; padding: 13px 18px !important; }
+    .btn-navy { font-size: 12.5px !important; padding: 11px 18px !important; }
+  }
 </style>
 </head>
 <body>
