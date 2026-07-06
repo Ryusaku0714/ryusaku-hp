@@ -193,33 +193,13 @@
     position: relative;
   }
   .hero-right-label { position: absolute; top: 40px; right: 64px; font-size: 11px; letter-spacing: .2em; color: #a89a78; }
-  .device-tablet {
+  .hero-illustration {
     width: 100%;
-    padding: 16px;
-    border-radius: 26px;
-    background: linear-gradient(150deg, #20293a, #12192a);
-    box-shadow: 0 44px 90px -34px rgba(21,41,74,.65), inset 0 0 0 1px rgba(255,255,255,.06);
-    position: relative;
-  }
-  .device-tablet-screen {
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
-    background: var(--img-placeholder);
-    position: relative;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,.3);
-    height: 400px;
+    box-shadow: 0 40px 80px -34px rgba(21,41,74,.5);
   }
-  .device-tablet-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .device-tablet-camera { position: absolute; top: 50%; left: 8px; transform: translateY(-50%); width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.25); }
-  .img-placeholder {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--img-placeholder);
-    color: #9aa8bd;
-    font-size: 13px;
-    letter-spacing: .06em;
-    border: 1px dashed #c7d0de;
-  }
+  .hero-illustration img { width: 100%; height: auto; display: block; }
 
   /* ── PHILOSOPHY ── */
   .philosophy { background: var(--cream); position: relative; overflow: hidden; }
@@ -457,11 +437,8 @@
   </div>
   <div class="hero-right rs-a" style="animation-delay:.35s;">
     <div class="hero-right-label">往診資料メーカー</div>
-    <div class="device-tablet">
-      <div class="device-tablet-screen">
-        <div class="img-placeholder">画面キャプチャ準備中</div>
-      </div>
-      <span class="device-tablet-camera"></span>
+    <div class="hero-illustration">
+      <img src="images/hero-illustration.png" alt="往診資料メーカーのイメージイラスト" loading="lazy">
     </div>
   </div>
 </section>
@@ -592,7 +569,7 @@
         <span class="browser-mock-dot" style="background:#28c840;"></span>
       </div>
       <div class="browser-mock-screen">
-        <div class="img-placeholder">画面キャプチャ準備中</div>
+        <img src="images/screen-handover.png" alt="引継ぎタスク画面" loading="lazy">
       </div>
     </div>
   </div>
