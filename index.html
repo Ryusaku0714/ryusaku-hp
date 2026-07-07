@@ -193,12 +193,33 @@
   }
   .hero-right-label { position: absolute; top: 40px; right: 64px; font-size: 11px; letter-spacing: .2em; color: #a89a78; }
   .hero-illustration {
+    position: relative;
     width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 40px 80px -34px rgba(21,41,74,.5);
+    padding: 14px;
+    background: linear-gradient(155deg, #1a1c22, #08090c);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    box-shadow: 0 40px 80px -34px rgba(0,0,0,.65);
   }
-  .hero-illustration img { width: 100%; height: auto; display: block; }
+  .hero-illustration::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light)),
+      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light)),
+      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light)),
+      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light));
+    background-repeat: no-repeat;
+    background-size: 18px 1.5px, 1.5px 18px, 18px 1.5px, 1.5px 18px, 18px 1.5px, 1.5px 18px, 18px 1.5px, 1.5px 18px;
+    background-position:
+      top 0 left 0, top 0 left 0,
+      top 0 right 0, top 0 right 0,
+      bottom 0 right 0, bottom 0 right 0,
+      bottom 0 left 0, bottom 0 left 0;
+  }
+  .hero-illustration img { width: 100%; height: auto; display: block; border-radius: 2px; position: relative; }
 
   /* ── PHILOSOPHY ── */
   .philosophy { background: var(--cream); position: relative; overflow: hidden; }
@@ -470,8 +491,8 @@
       </div>
       <div class="hero-stats rs-a" style="animation-delay:.55s;">
         <div>
-          <div class="stat-num">スマホ完結</div>
-          <div class="stat-label">どこでも入力・印刷</div>
+          <div class="stat-num">どこでも</div>
+          <div class="stat-label">（スマホ・PCで入力・印刷）</div>
         </div>
         <div>
           <div class="stat-num">完全無料</div>
