@@ -207,20 +207,20 @@
   .phil-eyebrow { margin-bottom: 20px; }
   .philosophy h2 { font-weight: 800; font-size: 44px; line-height: 1.4; margin: 0 0 28px; color: var(--navy-700); letter-spacing: .01em; }
   .philosophy p { font-size: 15px; line-height: 2.2; color: var(--text-brown-2); margin: 0 0 20px; }
-  .phil-note-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--navy-700); font-weight: 700; border-bottom: 2px solid var(--gold-light2); padding-bottom: 4px; }
+  .phil-note-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--navy-700); font-weight: 700; border-bottom: 2px solid var(--gold-light2); padding-bottom: 4px; text-decoration: none; }
   .phil-visual { display: flex; align-items: center; justify-content: center; }
   .phil-arc { width: 380px; height: 300px; }
 
   /* ── CHALLENGES ── */
-  .challenges { background: var(--navy-800); color: #f3f0e8; }
+  .challenges { background: #eaeef4; color: var(--navy-700); }
   .challenges-head { text-align: center; margin-bottom: 56px; }
-  .challenges-head h2 { font-weight: 800; font-size: 36px; margin: 0; letter-spacing: .01em; line-height: 1.5; }
+  .challenges-head h2 { font-weight: 800; font-size: 36px; margin: 0; letter-spacing: .01em; line-height: 1.5; color: var(--navy-700); }
   .challenges .grid-3 { gap: 28px; }
-  .challenge-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 40px 34px; }
-  .challenge-num { font-weight: 800; font-size: 32px; color: var(--gold-light); line-height: 1; margin-bottom: 20px; }
-  .challenge-card h3 { font-weight: 700; font-size: 20px; margin: 0 0 14px; color: #f3f0e8; }
-  .challenge-card p { font-size: 13.5px; line-height: 2; color: var(--text-sub-2); margin: 0; font-weight: 300; }
-  .challenges-note { text-align: center; font-weight: 700; font-size: 22px; color: var(--gold-light); margin: 56px 0 0; letter-spacing: .01em; }
+  .challenge-card { background: #fff; border: 1px solid #dbe2ec; border-radius: 10px; padding: 40px 34px; box-shadow: 0 20px 40px -30px rgba(21,41,74,.4); }
+  .challenge-num { font-weight: 800; font-size: 32px; color: var(--gold); line-height: 1; margin-bottom: 20px; }
+  .challenge-card h3 { font-weight: 700; font-size: 20px; margin: 0 0 14px; color: var(--navy-700); }
+  .challenge-card p { font-size: 13.5px; line-height: 2; color: #54607a; margin: 0; }
+  .challenges-note { text-align: center; font-weight: 700; font-size: 22px; color: var(--gold); margin: 56px 0 0; letter-spacing: .01em; }
 
   /* ── FEATURES ── */
   .features { background: var(--cream-light); }
@@ -232,7 +232,8 @@
   .features-head p { font-size: 13.5px; color: #7c745f; max-width: 340px; line-height: 1.9; margin: 0; text-align: right; }
   .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--border-cream-1); border-left: 1px solid var(--border-cream-1); }
   .feature-cell { padding: 38px 34px; border-right: 1px solid var(--border-cream-1); border-bottom: 1px solid var(--border-cream-1); }
-  .feature-num { font-weight: 800; font-size: 24px; color: #b8863b; line-height: 1; margin-bottom: 18px; }
+  .feature-icon-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .feature-num { font-weight: 800; font-size: 22px; color: #b8863b; line-height: 1; }
   .feature-cell h3 { font-weight: 700; font-size: 19px; margin: 0 0 10px; color: var(--navy-700); }
   .feature-cell p { font-size: 13.5px; color: var(--text-brown); line-height: 1.95; margin: 0; }
 
@@ -264,9 +265,9 @@
   .howto-step p { font-size: 13.5px; color: var(--text-brown); line-height: 2; margin: 0; }
 
   /* ── SCREENS ── */
-  .screens { background: var(--navy-700); color: #f3f0e8; }
+  .screens { background: #eaeef4; color: var(--navy-700); }
   .screens-head { text-align: center; margin-bottom: 60px; }
-  .screens-head h2 { font-weight: 800; font-size: 38px; margin: 12px 0 0; letter-spacing: .01em; }
+  .screens-head h2 { font-weight: 800; font-size: 38px; margin: 12px 0 0; letter-spacing: .01em; color: var(--navy-700); }
   .screens-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 48px; max-width: 1080px; margin: 0 auto; align-items: center; }
   .screen-browser { border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); box-shadow: 0 40px 80px -34px rgba(0,0,0,.7); background: #fff; }
   .screen-browser-bar { display: flex; align-items: center; gap: 7px; padding: 11px 15px; background: var(--navy-950); }
@@ -276,8 +277,8 @@
     display: flex; align-items: center; padding: 0 12px; font-size: 11px; color: #8ea0c0; letter-spacing: .04em;
   }
   .screen-browser img { width: 100%; display: block; }
-  .screen-caption-title { font-size: 18px; font-weight: 700; color: #f3f0e8; margin-bottom: 8px; }
-  .screen-caption-body { font-size: 13.5px; color: var(--text-sub-2); line-height: 1.95; margin: 0 0 20px; max-width: 420px; font-weight: 300; }
+  .screen-caption-title { font-size: 18px; font-weight: 700; color: var(--navy-700); margin-bottom: 8px; }
+  .screen-caption-body { font-size: 13.5px; color: #54607a; line-height: 1.95; margin: 0 0 20px; max-width: 420px; }
   .device-phone {
     width: 250px; margin: 0 auto; padding: 11px; border-radius: 34px;
     background: linear-gradient(150deg, #26303f, #141b29);
@@ -437,7 +438,7 @@
     </span>
   </a>
   <div class="nav-menu">
-    <a class="nav-link" href="#philosophy">思想</a>
+    <a class="nav-link" href="#philosophy">開発者の思い</a>
     <a class="nav-link" href="#features">特長</a>
     <a class="nav-link" href="#howto">使い方</a>
     <a class="nav-link" href="#pricing">料金</a>
@@ -492,11 +493,11 @@
 <section class="section philosophy" id="philosophy">
   <div class="section-inner grid-2">
     <div>
-      <div class="eyebrow phil-eyebrow">PHILOSOPHY — BRIDGEWORK ROUNDS</div>
+      <div class="eyebrow phil-eyebrow">PHILOSOPHY — 開発者の思い</div>
       <h2>医療の<span style="color:var(--gold);">"見えない"</span>を、<br>埋める。</h2>
       <p>薬剤師は、処方箋に応えるだけでなく「情報を持ち込む人」であれる。往診に同行するとき、医師・看護師・施設スタッフ・そして患者さんに、薬剤師だからこそ気づける情報を届けたい。</p>
       <p style="margin-bottom:28px;">紹介・逆紹介という医療の流れの中で、そのつなぎ目に落ちてしまいがちな情報を、チームの一員として拾い上げる。<b style="color:var(--navy-700);">往診資料メーカー</b>は、その「情報をつなぐ」ための道具です。</p>
-      <span class="phil-note-link">Bridgework 公式noteを読む →</span>
+      <a href="https://note.com/gentle_pansy1797" target="_blank" rel="noopener" class="phil-note-link">Bridgework Rounds 開発者の公式note を読む →</a>
     </div>
     <div class="phil-visual">
       <svg class="phil-arc" viewBox="0 0 380 300" fill="none" aria-hidden="true">
@@ -516,7 +517,7 @@
 <section class="section challenges">
   <div class="section-inner-narrow">
     <div class="challenges-head">
-      <div class="eyebrow eyebrow-on-navy">CHALLENGES</div>
+      <div class="eyebrow">CHALLENGES</div>
       <h2>往診同行の準備、<br>こんな手間に追われていませんか。</h2>
     </div>
     <div class="grid-3">
@@ -552,32 +553,32 @@
     </div>
     <div class="feature-grid">
       <div class="feature-cell">
-        <div class="feature-num">01</div>
+        <div class="feature-icon-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8922f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M12 13v3l2 1"/></svg><span class="feature-num">01</span></div>
         <h3>処方期間を自動計算</h3>
         <p>往診日・処方日数・処方ズレ日数を入れるだけで、処方期間と次回往診日を即座に算出。定期に合わせた日数計算ツールも搭載。</p>
       </div>
       <div class="feature-cell">
-        <div class="feature-num">02</div>
+        <div class="feature-icon-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8922f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 4.5 3.2 8.3 8 10 4.8-1.7 8-5.5 8-10V5l-8-3Z"/><circle cx="12" cy="10" r="2.2"/><path d="M8.5 16c.7-1.7 2-2.6 3.5-2.6s2.8.9 3.5 2.6"/></svg><span class="feature-num">02</span></div>
         <h3>患者情報は略称で管理</h3>
         <p>氏名は登録せず、部屋番号と略称（イニシャル）で管理。病歴・アレルギー歴・入院歴・定時薬まで一画面にまとめられます。</p>
       </div>
       <div class="feature-cell">
-        <div class="feature-num">03</div>
+        <div class="feature-icon-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8922f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M8.5 13h7M8.5 16.5h5"/></svg><span class="feature-num">03</span></div>
         <h3>薬剤変更記録の管理</h3>
         <p>追加・中止・変更を時系列で記録。日付順・入力順で並べ替えでき、いつ何をどう変えたかが一目でわかります。</p>
       </div>
       <div class="feature-cell">
-        <div class="feature-num">04</div>
+        <div class="feature-icon-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8922f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="8" width="19" height="8" rx="4" transform="rotate(45 12 12)"/><path d="M12 7.8 16.2 12"/></svg><span class="feature-num">04</span></div>
         <h3>外用・頓用／他科受診</h3>
         <p>見落としがちな外用薬・頓用薬も、通院・他科受診の予定も、内服とまとめて一元管理。フリーメモも残せます。</p>
       </div>
       <div class="feature-cell">
-        <div class="feature-num">05</div>
+        <div class="feature-icon-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8922f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 17h10v4H7z"/><circle cx="17" cy="12.5" r=".6" fill="#c8922f"/></svg><span class="feature-num">05</span></div>
         <h3>印刷・テキストコピー出力</h3>
         <p>1患者分の全体印刷も、1ヶ月分のログ印刷も、テキストコピーもワンタップ。往診当日は紙でそのまま持参できます。</p>
       </div>
       <div class="feature-cell">
-        <div class="feature-num">06</div>
+        <div class="feature-icon-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8922f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M12 13.5v0M11 19v-3.5h2V19"/></svg><span class="feature-num">06</span></div>
         <h3>個人在宅にも対応</h3>
         <p>施設の往診同行だけでなく、訪問診療同行（個人在宅）にも対応。施設・チーム・患者の階層で整理して管理できます。</p>
       </div>
@@ -648,7 +649,7 @@
 <!-- ===================== SCREENS ===================== -->
 <section class="section screens">
   <div class="screens-head">
-    <div class="eyebrow eyebrow-on-navy">SCREENS</div>
+    <div class="eyebrow">SCREENS</div>
     <h2>往診資料メーカーの画面</h2>
   </div>
   <div class="screens-grid">
@@ -789,7 +790,7 @@
     </div>
   </div>
   <div class="footer-links">
-    <a href="#philosophy">思想</a>
+    <a href="#philosophy">開発者の思い</a>
     <a href="#features">特長</a>
     <a href="#howto">使い方</a>
     <a href="#pricing">料金</a>
