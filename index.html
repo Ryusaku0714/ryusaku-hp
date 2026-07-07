@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>往診資料メーカー | by Bridgework Rounds ─ 往診同行薬剤師・在宅薬剤師向けツール</title>
-<meta name="description" content="施設現場で活躍する訪問薬剤師10人の声から完成した、往診同行資料の完成版。">
+<meta name="description" content="施設現場で活躍する訪問薬剤師10人の声から完成した、往診同行資料の完成版。処方期間の自動計算から薬剤変更記録・引継ぎタスク管理まで。Googleログインだけで今日から完全無料。">
 <meta name="keywords" content="往診資料,施設薬剤師,往診同行,往診同行 薬剤師,在宅薬剤師 ツール,施設薬剤師 往診資料,薬剤師ツール,処方管理,2026年改定,診療報酬改定 往診,Bridgework Rounds">
 <meta property="og:image" content="https://ryusaku.jp/ooshin-maker-ogp.png">
 <meta property="og:image:width" content="1200">
@@ -174,10 +174,21 @@
     font-size: 16px;
     line-height: 2.2;
     color: var(--text-sub-1);
-    margin: 0 0 44px;
+    margin: 0 0 26px;
     max-width: 460px;
     font-weight: 300;
   }
+  .hero-trust {
+    font-size: 14.5px;
+    line-height: 1.9;
+    color: #e6d9bd;
+    margin: 0 0 40px;
+    max-width: 460px;
+    font-weight: 400;
+    border-left: 2px solid var(--gold);
+    padding-left: 16px;
+  }
+  .hero-trust b { color: var(--gold-light); font-weight: 700; }
   .hero-actions { display: flex; gap: 16px; align-items: center; }
   .hero-stats { margin-top: 56px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.14); display: flex; gap: 52px; }
   .stat-num { font-weight: 800; font-size: 28px; color: var(--gold-light); line-height: 1; }
@@ -193,33 +204,13 @@
   }
   .hero-right-label { position: absolute; top: 40px; right: 64px; font-size: 11px; letter-spacing: .2em; color: #a89a78; }
   .hero-illustration {
-    position: relative;
     width: 100%;
-    padding: 14px;
-    background: linear-gradient(155deg, #1a1c22, #08090c);
-    border: 1px solid var(--gold);
-    border-radius: 6px;
-    box-shadow: 0 40px 80px -34px rgba(0,0,0,.65);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #d5ccb8;
+    box-shadow: 0 44px 90px -34px rgba(21,41,74,.6);
   }
-  .hero-illustration::before {
-    content: "";
-    position: absolute;
-    inset: 6px;
-    pointer-events: none;
-    background-image:
-      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light)),
-      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light)),
-      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light)),
-      linear-gradient(var(--gold-light), var(--gold-light)), linear-gradient(var(--gold-light), var(--gold-light));
-    background-repeat: no-repeat;
-    background-size: 18px 1.5px, 1.5px 18px, 18px 1.5px, 1.5px 18px, 18px 1.5px, 1.5px 18px, 18px 1.5px, 1.5px 18px;
-    background-position:
-      top 0 left 0, top 0 left 0,
-      top 0 right 0, top 0 right 0,
-      bottom 0 right 0, bottom 0 right 0,
-      bottom 0 left 0, bottom 0 left 0;
-  }
-  .hero-illustration img { width: 100%; height: auto; display: block; border-radius: 2px; position: relative; }
+  .hero-illustration img { width: 100%; height: auto; display: block; }
 
   /* ── PHILOSOPHY ── */
   .philosophy { background: var(--cream); position: relative; overflow: hidden; }
@@ -398,6 +389,10 @@
     .device-phone { width: 100%; max-width: 250px; }
     .footer-links { gap: 14px 20px; }
     .site-footer { flex-direction: column; gap: 20px; text-align: center; }
+
+    .hero-stats { gap: 20px; }
+    .stat-num { font-size: 22px !important; }
+    .stat-label { font-size: 10.5px !important; }
   }
 
   /* ── レスポンシブ（768px以下・崩れ修正） ── */
@@ -415,7 +410,7 @@
     }
 
     /* ② ヒーローセクション本文 */
-    .hero-lead {
+    .hero-lead, .hero-trust {
       font-size: 15px !important;
       line-height: 1.75 !important;
       word-break: normal;
@@ -447,6 +442,11 @@
     .btn-primary { font-size: 13px !important; padding: 13px 20px !important; }
     .btn-secondary { font-size: 12.5px !important; padding: 13px 18px !important; }
     .btn-navy { font-size: 12.5px !important; padding: 11px 18px !important; }
+
+    /* ⑤ ヒーロー実績3カラム */
+    .hero-stats { gap: 12px; }
+    .stat-num { font-size: 19px !important; }
+    .stat-label { font-size: 9.5px !important; letter-spacing: .02em !important; }
   }
 </style>
 </head>
@@ -484,15 +484,16 @@
         <span class="hero-kicker-text">2026 診療報酬改定 対応</span>
       </div>
       <h1 class="rs-a" style="animation-delay:.15s;">往診同行の準備を、<br>現場の手に、<br><span class="hero-gold">スマートに。</span></h1>
-      <p class="hero-lead rs-a" style="animation-delay:.28s;">施設現場で活躍する訪問薬剤師10人の声から完成した、往診同行資料の完成版。</p>
+      <p class="hero-lead rs-a" style="animation-delay:.28s;">処方期間の自動計算から、薬剤変更記録・外用頓用薬・他科受診・引継ぎタスクの管理まで。往診をこなす薬剤師が、実務のためにつくり上げたスマホ・タブレット完結ツール。Googleログインだけで今日から、完全無料でお使いいただけます。</p>
+      <p class="hero-trust rs-a" style="animation-delay:.34s;">施設現場で活躍する訪問薬剤師<b>10人</b>の声から完成した、往診同行資料の完成版。</p>
       <div class="hero-actions rs-a" style="animation-delay:.4s;">
         <a href="https://ooshin-maker.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">無料で使ってみる →</a>
         <a href="#features" class="btn btn-secondary">機能を詳しく見る</a>
       </div>
       <div class="hero-stats rs-a" style="animation-delay:.55s;">
         <div>
-          <div class="stat-num">どこでも</div>
-          <div class="stat-label">（スマホ・PCで入力・印刷）</div>
+          <div class="stat-num">スマホ完結</div>
+          <div class="stat-label">どこでも入力・印刷</div>
         </div>
         <div>
           <div class="stat-num">完全無料</div>
@@ -795,7 +796,7 @@
       <span class="cta-kicker-text">START FREE</span>
       <span class="cta-kicker-line"></span>
     </span>
-    <h2>往診の準備を、もっと軽やかに</h2>
+    <h2>往診の準備を、もっと軽やかに。</h2>
     <p class="cta-lead">Googleログインだけで今日から。完全無料で、往診資料メーカーのすべての機能をお試しいただけます。ご要望・不具合のご報告も、通常1営業日以内にご返信します。</p>
     <div class="cta-actions">
       <a href="https://ooshin-maker.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">無料で使ってみる →</a>
