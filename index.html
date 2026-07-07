@@ -402,20 +402,24 @@
       overflow-wrap: break-word;
     }
 
-    /* ③ セクション見出し */
+    /* ③ セクション見出し（font-sizeのみ調整） */
+    h1 { font-size: 28px !important; }
     h2 {
-      font-size: 23px !important;
+      font-size: 22px !important;
       line-height: 1.5 !important;
       word-break: keep-all;
       overflow-wrap: break-word;
     }
     h3 {
-      font-size: 19px !important;
+      font-size: 18px !important;
       line-height: 1.5 !important;
       word-break: keep-all;
       overflow-wrap: break-word;
     }
     .philosophy h2, .cta h2 { font-size: 24px !important; }
+
+    /* ③' 本文（line-heightのみ調整） */
+    p { line-height: 1.75 !important; }
 
     /* ④ ボタン */
     .btn { white-space: nowrap; }
